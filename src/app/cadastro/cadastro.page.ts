@@ -25,6 +25,8 @@ export class CadastroPage implements OnInit {
       if (data.cadastrocliente && data.key){
         this.cadastrocliente = new Cadastrocliente();
         this.cadastrocliente.nome = data.cadastrocliente.nome;
+        this.cadastrocliente.email = data.cadastrocliente.email;
+        this.cadastrocliente.senha = data.cadastrocliente.senha;
         this.cadastrocliente.cpf = data.cadastrocliente.cpf;
         this.cadastrocliente.telefone = data.cadastrocliente.telefone;
         this.cadastrocliente.endereco = data.cadastrocliente.endereco;
