@@ -10,7 +10,7 @@ import { CadastroPage } from './cadastro.page';
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule, 
     FormsModule,
     IonicModule,
     CadastroPageRoutingModule
