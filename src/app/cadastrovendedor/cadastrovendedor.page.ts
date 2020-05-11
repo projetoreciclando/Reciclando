@@ -24,6 +24,8 @@ export class CadastrovendedorPage implements OnInit {
       if (data.cadastrovendedor && data.key){
         this.cadastrovendedor = new Cadastrovendedor();
         this.cadastrovendedor.nome = data.cadastrovendedor.nome;
+        this.cadastrovendedor.email = data.cadastrovendedor.email;
+        this.cadastrovendedor.senha = data.cadastrovendedor.senha;
         this.cadastrovendedor.cnpj = data.cadastrovendedor.cnpj;
         this.cadastrovendedor.telefone = data.cadastrovendedor.telefone;
         this.cadastrovendedor.endereco = data.cadastrovendedor.endereco;
