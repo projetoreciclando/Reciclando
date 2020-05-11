@@ -1,0 +1,85 @@
+
+.cabeca{
+    background-color: #24B960;
+    font-family: Alatsi;
+    color: black;
+  }
+  
+  .title{
+   font-size: 18px
+  }
+  
+  .sub{
+    font-size: 12px
+  }
+
+  .cartao{
+    border-radius: 10px;
+    border: 1px solid #000000;
+    border: transparent;
+    margin-top: 20%;
+  }
+
+  .linha1{
+      margin-left: 5%;     
+     margin-top: 7%;
+    display: flex;
+    
+    align-items: center;
+  }
+
+  .texto1{
+      text-align: center;
+      font-family: Alatsi;
+      color: black;
+      font-size: 18px;  
+      
+  }
+  .img1{
+      align-self: left;
+      align-content: left;
+      margin-right: 25%;
+  }
+
+
+  .linha2{
+    margin-left: 5%;     
+   margin-top: 7%;
+  display: flex;
+  
+  align-items: center;
+}
+
+.texto2{
+    text-align: center;
+    font-family: Alatsi;
+    color: black;
+    font-size: 18px;  
+    
+}
+.img2{
+    align-self: left;
+    align-content: left;
+    margin-right: 25%;
+}
+
+.meio{
+    margin-top: 8%;
+    align-content: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.recicla{
+    width: 150px;
+    height: 150px;
+}
+
+.butaum{
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block !important;
+    width: 50%;    
+}

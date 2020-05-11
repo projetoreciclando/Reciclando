@@ -1,0 +1,84 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+
+.cartao{
+  border-radius: 10px;
+  border: 1px solid #000000;
+  border: transparent;
+  margin-top: 10%;
+}
+
+.title{
+  text-align: center;
+  color: #000;
+  font-family: Alatsi;
+  font-size: 24px;
+}
+
+.valor{
+  text-align: center;
+  color: #A9A9A9;
+  font-size: 22px;
+}
+.valorsaldo{
+  text-align: center;
+  color: #A9A9A9;
+  font-size: 34px;
+}
+
+.boxtitle{
+  align-content: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.title2{
+ 
+  color: #000;
+  font-family: Alatsi;
+  font-size: 20px;
+  text-align: left;
+ 
+}
+
+.title3{
+  text-align: center;
+  color: #A9A9A9;
+  font-size: 14px;
+  border-bottom: solid 1px;
+
+}
+
+.icone{
+  align-self: right;
+  align-items: right
+}
+
+.valor{
+  color: #000;
+  font-family: Alatsi;
+  font-size: 30px;
+}
+
+.cartao2{
+  border-radius: 10px;
+  border: 1px solid #000000;
+  border: transparent;
+  margin-top: 15%;
+}
+
+.botoes1{
+  background-color: #24B960;
+  font-size: 30px;
+  margin-bottom: 5%;
+  border-radius: 10px;
+}
+.botoes2{
+  background-color: #24B960;
+ 
+  font-size: 30px;
+  border-radius: 10px;
+}

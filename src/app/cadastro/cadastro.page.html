@@ -1,0 +1,34 @@
+
+<ion-content>
+  <div>
+    <img class="logoheader" src="assets/icon/logo.svg">
+  </div>
+  <div class="cadastro">
+    <img  class="cadastroicon" src="assets/icon/cadastro.svg.svg">
+  </div>
+  <form class="formcadastro">
+    <ion-item>
+      <ion-label>Nome:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.nome" name="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cpf:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.cpf" name="cpf"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefone:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.telefone" name="telefone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Endereço:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.endereco" name="endereco"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Complemento:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.complemento" name="complemento"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Estado:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.estado" name="estado"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cep:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.cep" name="cep"></ion-input>
+    </ion-item>
+    <ion-button type="submit" class="butaum" color="success">Cadastrar</ion-button>
+  </form>
+  
+</ion-content>

@@ -1,0 +1,30 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.cabeca{
+  background-color: #24B960;
+  font-family: Alatsi;
+  color: black;
+}
+
+.title{
+ font-size: 18px
+}
+
+.sub{
+  font-size: 12px
+}
+
+.box1{  
+  align-content: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  
+}
+
+.imgsize{
+  width: 79px;
+  height: 29px;
+}

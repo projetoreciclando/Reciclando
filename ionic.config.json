@@ -1,0 +1,8 @@
+{
+  "name": "reciclando",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
