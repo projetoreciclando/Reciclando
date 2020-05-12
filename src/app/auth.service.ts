@@ -4,7 +4,6 @@ import {Router } from '@angular/router';
 import { User } from "src/app/user";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { FirebaseApp } from '@angular/fire';
-import { timingSafeEqual } from 'crypto';
 
 
 @Injectable({
@@ -37,6 +36,7 @@ export class AuthService {
     return this.afa.createUserWithEmailAndPassword(user.email, user.password);
     
   }
+  
 
   PasswordRecover(passwordResetEmail) {
     return this.afa.sendPasswordResetEmail(passwordResetEmail)
@@ -52,26 +52,7 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-  SetUserData(user: User){
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const userData: User = {      
-      email: user.email,
-      displayName: user.displayName,
-      cpf: user.cpf,
-      telefone: user.telefone,
-      end: user.end,
-      estado: user.estado,
-      cep: user.cep,
-      tipo: user.tipo
-    }
-    return userRef.set(userData,{
-      merge: true
-    })
-  }
-  getUser(){
-    return this.afa.onAuthStateChanged( user =>{
-    console.log(user.email)
-    });
+  getUser(){   
   }
  
 
