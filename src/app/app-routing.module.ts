@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { HomeGuard } from './guards/home.guard';
 import { Tabs3Guard } from './guards/tabs3.guard';
 import { Tabs2Guard } from './guards/tabs2.guard';
+
 
 const routes: Routes = [
   
@@ -12,11 +15,13 @@ const routes: Routes = [
   {
     path: "home",
     loadChildren: () =>
-    import('./home/home.module').then(m => m.HomePageModule)
+    import('./home/home.module').then(m => m.HomePageModule),
+    canActivate: [HomeGuard]
   },
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate: [AuthGuard]
 
   }, 
   {

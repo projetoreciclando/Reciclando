@@ -72,7 +72,7 @@ export class AuthService {
   }
 
   getAuth(){
-    return this.afa.authState  
+    return this.afa
   }
 
 }
