@@ -1,0 +1,14 @@
+<ion-content>
+  <div>
+    <img class="logohome" src="assets/icon/logo.svg" style="align-items: center">
+  </div>
+  <ion-card>
+    <ion-card-content>
+        <ion-input class="inputum" type="email" [(ngModel)]="userRegister.email" placeholder="Digite seu E-mail"></ion-input>
+    </ion-card-content>
+    <ion-card-content>
+        <ion-input class="inputdois" type="password" [(ngModel)]="userRegister.password" placeholder="Digite sua senha"></ion-input>
+    </ion-card-content>    
+        <ion-button class="butaum" (click)="registrar()" color="success">Cadastrar</ion-button>
+    </ion-card>
+</ion-content>

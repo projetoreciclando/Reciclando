@@ -6,18 +6,19 @@ import { Tabs2Guard } from './guards/tabs2.guard';
 const routes: Routes = [
   
   {
-    path: "", redirectTo: "home", pathMatch: "full"
+    path: "", redirectTo:"home", pathMatch: "full"
   },
-
+  
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: "home",
+    loadChildren: () =>
+    import('./home/home.module').then(m => m.HomePageModule)
   },
-
   {
-    path: 'tab1',
-    loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
-  },
+    path: '',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+
+  }, 
   {
     path: 'tab2',
     loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule),
@@ -32,6 +33,7 @@ const routes: Routes = [
     path: 'tab5',
     loadChildren: () => import('./tab5/tab5.module').then( m => m.Tab5PageModule)
   },
+ 
   {
     path: 'cadastro',
     loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
@@ -51,6 +53,10 @@ const routes: Routes = [
   {
     path: 'recebevendedor',
     loadChildren: () => import('./recebevendedor/recebevendedor.module').then( m => m.RecebevendedorPageModule)
+  },
+  {
+    path: 'cadastrologin',
+    loadChildren: () => import('./cadastrologin/cadastrologin.module').then(m => m.CadastrologinPageModule)
   }
 ];
 @NgModule({

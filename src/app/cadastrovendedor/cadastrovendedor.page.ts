@@ -3,6 +3,9 @@ import { Cadastrovendedor } from '../cadastrovendedor';
 import { CadastrovendedorService } from '../cadastrovendedor.service';
 import { CadastrovendedorDadosService } from '../cadastrovendedor-dados.service';
 import { Router } from '@angular/router';
+import { LoadingController, ToastController, IonSlides } from "@ionic/angular";
+import { User } from 'src/app/user';
+import { AuthService } from "src/app/auth.service";
 
 @Component({
   selector: 'app-cadastrovendedor',
@@ -11,11 +14,46 @@ import { Router } from '@angular/router';
 })
 
 export class CadastrovendedorPage implements OnInit {
+  public userLogin: User = {};
+  public userRegister: User = {};
+  private loading: any;
   cadastrovendedor: Cadastrovendedor;
   key: string= '';
 
-  constructor(private cadastrovendedorService: CadastrovendedorService, private cadastrovendedorDataService: CadastrovendedorDadosService, private router: Router) { 
+  constructor(private cadastrovendedorService: CadastrovendedorService, private cadastrovendedorDataService: CadastrovendedorDadosService, private router: Router,
+    public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController,
+    public authService: AuthService) { 
 
+  }
+
+  async registrar(){
+    await this.presentLoading();
+    try{      
+      await this.authService.register(this.userRegister);
+    } catch(error){
+      console.error(error);
+      this.presentToast(error);
+    } finally{
+      this.loading.dismiss();
+      this.router.navigate(['home']);
+    }
+  }
+
+
+  async presentLoading(){
+    this.loading = await this.loadingCtrl.create({
+      message: "Por favor, aguarde..."
+    });
+    return this.loading.present();
+  }
+
+  async presentToast(message: string){
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2000
+    });
+    toast.present();
   }
 
   ngOnInit() {
@@ -24,7 +62,7 @@ export class CadastrovendedorPage implements OnInit {
       if (data.cadastrovendedor && data.key){
         this.cadastrovendedor = new Cadastrovendedor();
         this.cadastrovendedor.nome = data.cadastrovendedor.nome;
-        this.cadastrovendedor.email = data.cadastrovendedor.email;
+        this.cadastrovendedor.email2 = data.cadastrovendedor.email2;
         this.cadastrovendedor.senha = data.cadastrovendedor.senha;
         this.cadastrovendedor.cnpj = data.cadastrovendedor.cnpj;
         this.cadastrovendedor.telefone = data.cadastrovendedor.telefone;

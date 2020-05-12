@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {IonicStorageModule} from '@ionic/storage';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
@@ -20,7 +21,7 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot(), AppRoutingModule, FormsModule, AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule],
+  imports: [BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot(), AppRoutingModule, FormsModule, AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule, AngularFireAuthModule],
   providers: [
     StatusBar,
     SplashScreen,

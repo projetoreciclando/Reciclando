@@ -11,10 +11,16 @@
       <ion-label>Nome:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.nome" name="nome"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>E-mail:</ion-label> <ion-input type="email" [(ngModel)]="cadastrocliente.email" name="email"></ion-input>
+      <ion-label>E-mail:</ion-label> <ion-input type="email" [(ngModel)]="userRegister.email" name="email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Senha:</ion-label> <ion-input type="password" [(ngModel)]="cadastrocliente.senha" name="senha"></ion-input>
+      <ion-label>Repita seu E-mail:</ion-label> <ion-input type="email" [(ngModel)]="cadastrocliente.email2" name="email2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Senha:</ion-label> <ion-input type="password" [(ngModel)]="userRegister.password" name="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Repita sua Senha:</ion-label> <ion-input type="email" [(ngModel)]="cadastrocliente.senha" name="senha"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Cpf:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.cpf" name="cpf"></ion-input>
@@ -34,7 +40,7 @@
     <ion-item>
       <ion-label>Cep:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.cep" name="cep"></ion-input>
     </ion-item>
-    <ion-button type="submit" class="butaum" color="success">Cadastrar</ion-button>
+    <ion-button type="submit" class="butaum" (click)="registrar()" color="success">Cadastrar</ion-button>
   </form>
   
 </ion-content>

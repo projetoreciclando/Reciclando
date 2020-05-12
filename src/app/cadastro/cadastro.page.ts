@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Cadastrocliente } from '../cadastrocliente';
 import { CadastroclienteService } from '../cadastrocliente.service';
 import { CadastroclienteDadosService } from '../cadastrocliente-dados.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { LoadingController, ToastController, IonSlides } from "@ionic/angular";
+import { User } from 'src/app/user';
+import { AuthService } from "src/app/auth.service";
 
 @Component({
   selector: 'app-cadastro',
@@ -12,12 +15,50 @@ import { Router } from '@angular/router';
 
 
 export class CadastroPage implements OnInit {
+  public userLogin: User = {};
+  public userRegister: User = {};
+  private loading: any;
   cadastrocliente: Cadastrocliente;
   key: string= '';
 
-  constructor(private cadastroclienteService: CadastroclienteService, private cadastroclienteDataService: CadastroclienteDadosService, private router: Router) { 
+  constructor(private cadastroclienteService: CadastroclienteService, private cadastroclienteDataService: CadastroclienteDadosService,
+    public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController,
+    public authService: AuthService,
+    public router: Router
+    ) { 
 
   }
+
+  async registrar(){
+    await this.presentLoading();
+    try{      
+      await this.authService.register(this.userRegister);
+    } catch(error){
+      console.error(error);
+      this.presentToast(error);
+    } finally{
+      this.loading.dismiss();
+      this.router.navigate(['home']);
+    }
+  }
+
+
+  async presentLoading(){
+    this.loading = await this.loadingCtrl.create({
+      message: "Por favor, aguarde..."
+    });
+    return this.loading.present();
+  }
+
+  async presentToast(message: string){
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2000
+    });
+    toast.present();
+  }
+
 
   ngOnInit() {
     this.cadastrocliente = new Cadastrocliente();
@@ -25,7 +66,7 @@ export class CadastroPage implements OnInit {
       if (data.cadastrocliente && data.key){
         this.cadastrocliente = new Cadastrocliente();
         this.cadastrocliente.nome = data.cadastrocliente.nome;
-        this.cadastrocliente.email = data.cadastrocliente.email;
+        this.cadastrocliente.email2 = data.cadastrocliente.email2;
         this.cadastrocliente.senha = data.cadastrocliente.senha;
         this.cadastrocliente.cpf = data.cadastrocliente.cpf;
         this.cadastrocliente.telefone = data.cadastrocliente.telefone;

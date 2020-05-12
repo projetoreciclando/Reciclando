@@ -1,6 +1,6 @@
 export class Cadastrovendedor {
     nome: string;
-    email: string;
+    email2: string;
     senha: string;
     cnpj: string;
     telefone: string;

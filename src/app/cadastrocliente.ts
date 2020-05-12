@@ -1,7 +1,7 @@
 export class Cadastrocliente {
     nome: string;
-    email: string;
-    senha: string;
+    email2: string;
+    senha: string; 
     cpf: string;
     telefone: string;
     endereco: string;

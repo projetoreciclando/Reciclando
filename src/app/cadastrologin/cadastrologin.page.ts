@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoadingController, ToastController, IonSlides } from "@ionic/angular";
 import { User } from 'src/app/user';
 import { AuthService } from "src/app/auth.service";
 import { Router } from "@angular/router";
 
+
 @Component({
-  selector: 'app-tabs',
-  templateUrl: 'tabs.page.html',
-  styleUrls: ['tabs.page.scss']
+  selector: 'app-cadastrologin',
+  templateUrl: './cadastrologin.page.html',
+  styleUrls: ['./cadastrologin.page.scss'],
 })
-export class TabsPage {
-  
+export class CadastrologinPage implements OnInit {
+  @ViewChild(IonSlides, null) slides: IonSlides;
 
   public userLogin: User = {};
   public userRegister: User = {};
@@ -20,12 +21,12 @@ export class TabsPage {
     public toastCtrl: ToastController,
     public authService: AuthService,
     public router: Router
-  ) {}
+  ) { }
 
-  async sair(){
+  async registrar(){
     await this.presentLoading();
     try{
-      await this.authService.logout();
+      await this.authService.register(this.userRegister);
     } catch(error){
       console.error(error);
       this.presentToast(error);
@@ -34,6 +35,7 @@ export class TabsPage {
       this.router.navigate(['home']);
     }
   }
+
 
   async presentLoading(){
     this.loading = await this.loadingCtrl.create({
@@ -49,5 +51,8 @@ export class TabsPage {
     });
     toast.present();
   }
-    
+
+  ngOnInit() {
+  }
+
 }

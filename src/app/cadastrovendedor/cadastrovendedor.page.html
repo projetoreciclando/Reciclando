@@ -6,21 +6,23 @@
   <div class="cadastro">
     <img  class="cadastroicon" src="assets/icon/cadastro.svg.svg">
   </div>
-<<<<<<< HEAD
-  <form class="formcadastro" (ngSubmit)="onSubmit()"> 
-=======
   <form class="formcadastro" (ngSubmit)="onSubmit()">
->>>>>>> eb96bfa010b5c93d13df1f3c30b7312daaf1cae3
     <ion-item>
-      <ion-label>Nome da Loja:</ion-label> <ion-input type="text" [(ngModel)]="cadastrovendedor.nome" name="nome"></ion-input>
+      <ion-label>Nome:</ion-label> <ion-input type="text" [(ngModel)]="cadastrovendedor.nome" name="nome"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-item>
-      <ion-label>E-mail:</ion-label> <ion-input type="email" [(ngModel)]="cadastrocliente.email" name="email"></ion-input>
+      <ion-label>E-mail:</ion-label> <ion-input type="email" [(ngModel)]="userRegister.email" name="email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Senha:</ion-label> <ion-input type="password" [(ngModel)]="cadastrocliente.senha" name="senha"></ion-input>
+      <ion-label>Repita seu E-mail:</ion-label> <ion-input type="email" [(ngModel)]="cadastrovendedor.email2" name="email2"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label>Senha:</ion-label> <ion-input type="password" [(ngModel)]="userRegister.password" name="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Repita sua Senha:</ion-label> <ion-input type="email" [(ngModel)]="cadastrovendedor.senha" name="senha"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label>Cnpj:</ion-label> <ion-input type="text" [(ngModel)]="cadastrovendedor.cnpj" name="cnpj"></ion-input>
     </ion-item>
     <ion-item>
@@ -38,7 +40,7 @@
     <ion-item>
       <ion-label>Cep:</ion-label> <ion-input type="text" [(ngModel)]="cadastrovendedor.cep" name="cep"></ion-input>
     </ion-item>
-    <ion-button type="submit" class="butaum" color="success">Cadastrar</ion-button>
+    <ion-button type="submit" class="butaum" (click)="registrar()" color="success">Cadastrar</ion-button>
   </form>
   
-
+</ion-content>
