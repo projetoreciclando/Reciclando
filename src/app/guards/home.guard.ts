@@ -11,7 +11,7 @@ export class HomeGuard implements CanActivate {
   canActivate(): Promise<boolean>{
     return new Promise(resolve =>{
       this.authService.getAuth().onAuthStateChanged(user =>{
-        if (user) this.router.navigate(['tabs']);
+        if (user) this.router.navigate(['tabs']); 
         resolve(!user ? true : false);
       })
     })

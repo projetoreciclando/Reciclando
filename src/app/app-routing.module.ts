@@ -16,12 +16,12 @@ const routes: Routes = [
     path: "home",
     loadChildren: () =>
     import('./home/home.module').then(m => m.HomePageModule),
-    canActivate: [HomeGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [HomeGuard]
 
   }, 
   {
