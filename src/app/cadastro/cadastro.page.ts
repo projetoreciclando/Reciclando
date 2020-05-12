@@ -38,6 +38,7 @@ export class CadastroPage implements OnInit {
       console.error(error);
       this.presentToast(error);
     } finally{
+      await this.authService.SetUserData(this.userRegister);
       this.loading.dismiss();
       this.router.navigate(['home']);
     }
@@ -60,30 +61,8 @@ export class CadastroPage implements OnInit {
   }
 
 
-  ngOnInit() {
-    this.cadastrocliente = new Cadastrocliente();
-    this.cadastroclienteDataService.currentCadastrocliente.subscribe(data =>{
-      if (data.cadastrocliente && data.key){
-        this.cadastrocliente = new Cadastrocliente();
-        this.cadastrocliente.nome = data.cadastrocliente.nome;
-        this.cadastrocliente.email2 = data.cadastrocliente.email2;
-        this.cadastrocliente.senha = data.cadastrocliente.senha;
-        this.cadastrocliente.cpf = data.cadastrocliente.cpf;
-        this.cadastrocliente.telefone = data.cadastrocliente.telefone;
-        this.cadastrocliente.endereco = data.cadastrocliente.endereco;
-        this.cadastrocliente.complemento = data.cadastrocliente.complemento;
-        this.cadastrocliente.estado = data.cadastrocliente.estado;
-        this.cadastrocliente.cep = data.cadastrocliente.cep;
-        this.key = data.key;
-      }
-    });
-  }
+  ngOnInit() {}
 
- // Não sei oq por aqui// 
-  onSubmit(){
-    this.cadastroclienteService.insert(this.cadastrocliente);
-    this.router.navigate(['/cadastro']);
-    this.cadastrocliente = new Cadastrocliente();
-  }  
+
   
 }

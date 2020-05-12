@@ -38,7 +38,7 @@ export class HomePage implements OnInit {
     }
   }
   mudarPagina(){
-    this.router.navigate(['cadastrologin']);
+    this.router.navigate(['cadastro']);
   }  
 
   async presentLoading(){

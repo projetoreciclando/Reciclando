@@ -6,39 +6,37 @@
   <div class="cadastro">
     <img  class="cadastroicon" src="assets/icon/cadastro.svg.svg">
   </div>
-  <form class="formcadastro" (ngSubmit)="onSubmit()">
+  <form class="formcadastro">
     <ion-item>
-      <ion-label>Nome:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.nome" name="nome"></ion-input>
+      <ion-label>Nome:</ion-label> <ion-input type="text" [(ngModel)]="userRegister.displayName" name="nome"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>E-mail:</ion-label> <ion-input type="email" [(ngModel)]="userRegister.email" name="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Repita seu E-mail:</ion-label> <ion-input type="email" [(ngModel)]="cadastrocliente.email2" name="email2"></ion-input>
-    </ion-item>
+    </ion-item> 
     <ion-item>
       <ion-label>Senha:</ion-label> <ion-input type="password" [(ngModel)]="userRegister.password" name="password"></ion-input>
+    </ion-item>  
+    <ion-item>
+      <ion-label>Cpf:</ion-label> <ion-input type="text" [(ngModel)]="userRegister.cpf" name="cpf"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Repita sua Senha:</ion-label> <ion-input type="email" [(ngModel)]="cadastrocliente.senha" name="senha"></ion-input>
+      <ion-label>Telefone:</ion-label> <ion-input type="text" [(ngModel)]="userRegister.telefone" name="telefone"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Cpf:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.cpf" name="cpf"></ion-input>
+      <ion-label>Endereço:</ion-label> <ion-input type="text" [(ngModel)]="userRegister.end" name="end"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label>Estado:</ion-label> <ion-input type="text" [(ngModel)]="userRegister.estado" name="estado"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Telefone:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.telefone" name="telefone"></ion-input>
+      <ion-label>Cep:</ion-label> <ion-input type="text" [(ngModel)]="userRegister.cep" name="cep"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Endereço:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.endereco" name="endereco"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Complemento:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.complemento" name="complemento"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Estado:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.estado" name="estado"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Cep:</ion-label> <ion-input type="text" [(ngModel)]="cadastrocliente.cep" name="cep"></ion-input>
+      <ion-label>Tipo de Usuário</ion-label>
+      <ion-select type="text" [(ngModel)]="userRegister.tipo" name="tipo">
+        <ion-select-option value="cliente">Cliente</ion-select-option>
+        <ion-select-option value="lojista">Lojista</ion-select-option>
+      </ion-select>
     </ion-item>
     <ion-button type="submit" class="butaum" (click)="registrar()" color="success">Cadastrar</ion-button>
   </form>
