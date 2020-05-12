@@ -3,6 +3,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import {Router } from '@angular/router';
 import { User } from "src/app/user";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { FirebaseApp } from '@angular/fire';
+import { timingSafeEqual } from 'crypto';
 
 
 @Injectable({
@@ -10,7 +12,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 })
 export class AuthService {
   userData: any;
-
+  userLogado: any;
   constructor(private afa: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
@@ -66,13 +68,19 @@ export class AuthService {
       merge: true
     })
   }
+  getUser(){
+    return this.afa.onAuthStateChanged( user =>{
+    console.log(user.email)
+    });
+  }
+ 
 
   logout(){
     return this.afa.signOut();
   }
 
   getAuth(){
-    return this.afa
+    return this.afa    
   }
 
 }
