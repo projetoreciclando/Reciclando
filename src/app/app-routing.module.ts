@@ -4,11 +4,20 @@ import { Tabs3Guard } from './guards/tabs3.guard';
 import { Tabs2Guard } from './guards/tabs2.guard';
 
 const routes: Routes = [
+  
   {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    path: "", redirectTo: "home", pathMatch: "full"
+  },
 
-  }, 
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+
+  {
+    path: 'tab1',
+    loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
+  },
   {
     path: 'tab2',
     loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule),
@@ -22,10 +31,6 @@ const routes: Routes = [
   {
     path: 'tab5',
     loadChildren: () => import('./tab5/tab5.module').then( m => m.Tab5PageModule)
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'cadastro',
