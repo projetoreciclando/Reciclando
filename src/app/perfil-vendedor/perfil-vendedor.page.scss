@@ -1,52 +1,52 @@
 ion-content ion-toolbar {
-    --background: translucent;
-  }
-  
-  .cabeca{
-    background-color: #24B960;
-    font-family: Alatsi;
-    color: black;
-  }
-  
-  .title{
-   font-size: 18px
-  }
-  
-  .sub{
-    font-size: 12px
-  }
-  
-  .box1{  
-    align-content: center;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-    
-  }
-  
-  .imgsize{
-    width: 79px;
-    height: 29px;
-  }
-  
-  .primeiro{
-    align-content: center;
+  --background: translucent;
+}
+
+.cabeca{
+  background-color: #24B960;
+  font-family: Roboto;
+  color: black;
+}
+
+.title{
+ font-size: 18px
+}
+
+.sub{
+  font-size: 12px
+}
+
+.box1{  
+  align-content: center;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 5%;
-  }
-  .titulo{
-    font-family: Alatsi;
-    color: black;
-    font-size: 20px;
-  }
   
-  .procura{
-    align-self: right;
-  }
+}
+
+.imgsize{
+  width: 79px;
+  height: 29px;
+}
+
+.primeiro{
+  align-content: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 5%;
+}
+.titulo{
+  font-family: Roboto;
+  color: black;
+  font-size: 20px;
+}
+
+.procura{
+  align-self: right;
+}
+
+.search{
+  width: 50%;
   
-  .search{
-    width: 50%;
-    
-  }
+}
