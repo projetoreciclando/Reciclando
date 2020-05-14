@@ -12,17 +12,20 @@ const routes: Routes = [
     path: "", redirectTo:"home", pathMatch: "full"
   },
   
-  {
-    path: "home",
-    loadChildren: () =>
-    import('./home/home.module').then(m => m.HomePageModule)
-
-  },
+ 
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate: [AuthGuard]
 
   }, 
+  {
+    path: "home",
+    loadChildren: () => 
+    import('./home/home.module').then(m => m.HomePageModule),
+    canActivate: [HomeGuard]
+
+  },
   {
     path: 'tab2',
     loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule),
