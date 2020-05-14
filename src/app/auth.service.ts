@@ -4,6 +4,7 @@ import {Router } from '@angular/router';
 import { User } from "src/app/user";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { FirebaseApp } from '@angular/fire';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 
 @Injectable({

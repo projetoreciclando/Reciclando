@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoadingController, ToastController, IonSlides } from "@ionic/angular";
 import { User } from 'src/app/user';
 import { AuthService } from "src/app/auth.service";
+import { FormGroup, FormBuilder, Validators, FormControl, ReactiveFormsModule  } from '@angular/forms';
 
 import { Router } from "@angular/router";
 
@@ -14,6 +15,8 @@ import { Router } from "@angular/router";
 export class HomePage implements OnInit {
   @ViewChild(IonSlides, null) slides: IonSlides;
 
+  validations_form: FormGroup;
+  errorMessage: string = '';
   public userLogin: User = {};
   public userRegister: User = {};
   private loading: any;
@@ -22,9 +25,73 @@ export class HomePage implements OnInit {
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public authService: AuthService,
-    public router: Router
+    public router: Router,    
+    private formBuilder: FormBuilder
   ) { }
+  ngOnInit() {
+    this.validations_form = this.formBuilder.group({
 
+
+      email: new FormControl('', Validators.compose([
+
+
+        Validators.required,
+
+
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+
+
+      ])),
+
+
+      password: new FormControl('', Validators.compose([
+
+
+        Validators.minLength(5),
+
+
+        Validators.required
+
+
+      ])),
+
+
+    });
+  }
+
+  validation_messages = {
+
+
+    'email': [
+
+
+      { type: 'required', message: 'E-mail nescessário.' },
+
+
+      { type: 'pattern', message: 'Insira um e-mail válido.' }
+
+
+    ],
+
+
+    'password': [
+
+
+      { type: 'required', message: 'Senha nescessária.' },
+
+
+      { type: 'minlength', message: 'A senha deve ter ao menos 5 caracteres' }
+
+
+    ]
+
+
+  };
+
+
+
+
+  
   async login(){
     await this.presentLoading();
     try{
@@ -54,10 +121,6 @@ export class HomePage implements OnInit {
       duration: 2000
     });
     toast.present();
-  }
-
-
-  ngOnInit() {
   }
 
 }

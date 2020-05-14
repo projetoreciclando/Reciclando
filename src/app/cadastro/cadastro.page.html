@@ -1,4 +1,3 @@
-
 <ion-content>
   <div>
     <img class="logoheader" src="assets/icon/logo.svg">
@@ -6,39 +5,58 @@
   <div class="cadastro">
     <img  class="cadastroicon" src="assets/icon/cadastro.svg.svg">
   </div>
-  <form class="formcadastro">
+  <form class="formcadastro" [formGroup]="validations_form" (ngSubmit)="registrar(validations_form.this.userRegister)">
     <ion-item>
-      <ion-label>Nome:</ion-label> <ion-input type="text" [(ngModel)]="userRegister.displayName" name="nome"></ion-input>
+      <ion-label>Nome:</ion-label> <ion-input type="text" formControlName="displayName" [(ngModel)]="userRegister.displayName"  name="nome"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>E-mail:</ion-label> <ion-input type="email" [(ngModel)]="userRegister.email" name="email"></ion-input>
+      <ion-label>E-mail:</ion-label> <ion-input type="email" formControlName="email"  [(ngModel)]="userRegister.email" name="email"></ion-input>
     </ion-item> 
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message"
+          *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
     <ion-item>
-      <ion-label>Senha:</ion-label> <ion-input type="password" [(ngModel)]="userRegister.password" name="password"></ion-input>
+      <ion-label>Senha:</ion-label> <ion-input type="password" formControlName="password" [(ngModel)]="userRegister.password" name="password"></ion-input>
+    </ion-item>  
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message"
+          *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+          {{ validation.message }}
+        </div>        
+      </ng-container>     
+    </div>
+    <ion-item>
+      <ion-label>Senha:</ion-label> <ion-input type="password" formControlName="password2" type="password2" name="password2"></ion-input>
     </ion-item>  
     <ion-item>
-      <ion-label>Cpf:</ion-label> <ion-input type="number" [(ngModel)]="userRegister.cpf" name="cpf"></ion-input>
+      <ion-label>Cpf:</ion-label> <ion-input type="number" formControlName="cpf" [(ngModel)]="userRegister.cpf" name="cpf"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Telefone:</ion-label> <ion-input type="number" [(ngModel)]="userRegister.telefone" name="telefone"></ion-input>
+      <ion-label>Telefone:</ion-label> <ion-input type="number" formControlName="telefone" [(ngModel)]="userRegister.telefone" name="telefone"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Endereço:</ion-label> <ion-input type="text" [(ngModel)]="userRegister.end" name="end"></ion-input>
+      <ion-label>Endereço:</ion-label> <ion-input type="text" formControlName="end" [(ngModel)]="userRegister.end" name="end"></ion-input>
     </ion-item> 
     <ion-item>
-      <ion-label>Estado:</ion-label> <ion-input type="text" [(ngModel)]="userRegister.estado" name="estado"></ion-input>
+      <ion-label>Estado:</ion-label> <ion-input type="text" formControlName="estado" [(ngModel)]="userRegister.estado" name="estado"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Cep:</ion-label> <ion-input type="number" [(ngModel)]="userRegister.cep" name="cep"></ion-input>
+      <ion-label>Cep:</ion-label> <ion-input type="number" formControlName="cep" [(ngModel)]="userRegister.cep" name="cep"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Tipo de Usuário</ion-label>
-      <ion-select type="text" [(ngModel)]="userRegister.tipo" name="tipo">
+      <ion-select type="text" formControlName="tipo"[(ngModel)]="userRegister.tipo" name="tipo">
         <ion-select-option value="cliente">Cliente</ion-select-option>
         <ion-select-option value="lojista">Lojista</ion-select-option>
       </ion-select>
     </ion-item>
-    <ion-button type="submit" class="butaum" (click)="registrar()" color="success">Cadastrar</ion-button>
+    <ion-button type="submit" class="butaum" (click)="registrar()" [disabled]="!validations_form.valid" color="success">Cadastrar</ion-button>
   </form>
   
 </ion-content>
